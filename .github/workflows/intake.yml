@@ -1,0 +1,28 @@
+name: intake
+on:
+  workflow_dispatch:
+    inputs:
+      job: { required: true }
+      file_id: { required: true }
+      chat_id: { required: true }
+permissions: { contents: write, actions: write }
+concurrency: { group: repo-writes, cancel-in-progress: false }
+jobs:
+  intake:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+      - name: fetch voiceover from Telegram
+        env: { TELEGRAM_BOT_TOKEN: "${{ secrets.TELEGRAM_BOT_TOKEN }}" }
+        run: |
+          P=$(curl -fsS "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/getFile?file_id=${{ inputs.file_id }}" | python3 -c "import sys,json;print(json.load(sys.stdin)['result']['file_path'])")
+          curl -fsS -o /tmp/in.audio "https://api.telegram.org/file/bot$TELEGRAM_BOT_TOKEN/$P"
+          ffmpeg -y -v error -i /tmp/in.audio -codec:a libmp3lame -q:a 2 jobs/${{ inputs.job }}/voice.mp3
+          ffprobe -v error -show_entries format=duration -of csv=p=0 jobs/${{ inputs.job }}/voice.mp3
+      - run: |
+          git config user.name shorts-bot; git config user.email "bot@users.noreply.github.com"
+          git add jobs; git commit -m "voice: ${{ inputs.job }}"; git pull --rebase -q; git push -q
+      - name: start render
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: gh workflow run render.yml -f job=${{ inputs.job }} -f shards=8 -f chat_id=${{ inputs.chat_id }}

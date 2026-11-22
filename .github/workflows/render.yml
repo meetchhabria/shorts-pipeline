@@ -5,6 +5,7 @@ on:
     inputs:
       job: { description: "job folder name under jobs/", required: true, default: pig-war }
       shards: { description: "parallel render shards", required: true, default: "8" }
+      chat_id: { description: "Telegram chat to notify (optional)", required: false, default: "" }
 env:
   CHROME: /usr/bin/google-chrome
   CHROME_ARGS: --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --ignore-gpu-blocklist --no-sandbox
@@ -80,3 +81,10 @@ jobs:
           ffmpeg -hide_banner -i out/final_${{ inputs.job }}.mp4 -af ebur128 -f null - 2>&1 | grep "I:" | tail -1
       - uses: actions/upload-artifact@v4
         with: { name: "final-${{ inputs.job }}", path: "out/final_${{ inputs.job }}.mp4" }
+      - name: send to Telegram
+        if: ${{ inputs.chat_id != '' }}
+        env: { TELEGRAM_BOT_TOKEN: "${{ secrets.TELEGRAM_BOT_TOKEN }}" }
+        run: |
+          curl -fsS "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendVideo" -F chat_id=${{ inputs.chat_id }} -F video=@out/final_${{ inputs.job }}.mp4 -F supports_streaming=true -F width=1080 -F height=1920 \
+            -F caption="Render ready: ${{ inputs.job }}. Approve to schedule, or request changes." \
+            -F 'reply_markup={"inline_keyboard":[[{"text":"Approve","callback_data":"approve:${{ inputs.job }}"},{"text":"Changes","callback_data":"changes:${{ inputs.job }}"}]]}'
