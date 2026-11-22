@@ -142,6 +142,7 @@ if (!SB || !SB.shots?.length) throw new Error('film/shots.json missing or empty'
 const warn = (...a) => console.log('DIRECTOR WARN', ...a);
 // site registry: origin in world space + per-set grade/light defaults and camera clamp box (local x,z half-extents)
 const SITES = { palace: { o: [W.palaceX, 0], grade: 0.62, light: 4.2, box: [7.6, 5.0, 6.6], liftY: 0 }, farm: { o: [0, 0], grade: 0, light: 0, box: [30, 30, 30] }, camps: { o: [100, 0], grade: 0, light: 0, box: [30, 30, 30] }, pier: { o: [W.pierX, 0], grade: 0.12, light: 0, box: [30, 30, 30] } };
+Object.assign(SITES, W.sites);
 const ANCH = Object.fromEntries(Object.entries(VOC.sets).map(([k, v]) => [k, v.anchors]));
 
 // ---------- cast roles -> stickrig people ----------
@@ -155,6 +156,13 @@ const ROLES = {
   red_soldier: [{ jacket: '#b3262a', jacket2: '#8c1c21', pattern: ['vest', '#ece7da'], details: ['vestBtn', 'belt'], armCol: '#b3262a', legCol: '#e9e4d6', shoeCol: '#1d1a1a' }, 'shako', '#1f1f24'],
   blue_soldier: [{ jacket: '#233a6e', jacket2: '#1a2a52', pattern: ['vest', '#d6c46a'], details: ['vestBtn', 'belt'], armCol: '#233a6e', legCol: '#6f93c4', shoeCol: '#2a1f1a' }, 'kepi', '#233a6e'],
   official: [{ jacket: '#4d4137', jacket2: '#372e27', pattern: ['vest', '#2b241f'], details: ['tie', 'vestBtn', 'hanky'], tieCol: '#7a3a30', hankyCol: '#efe6d0', moust: true }, 'top', '#27221e'],
+  scientist: [{ jacket: '#f3f1ea', jacket2: '#dedbd0', pattern: ['stripes', '#e4e1d6'], details: ['buttons'], armCol: '#f3f1ea', legCol: '#3a3a44' }, 'flat', '#4a4a52'],
+  knight: [{ jacket: '#8e949e', jacket2: '#6c727c', pattern: ['vest', '#b3262a'], details: ['belt'], armCol: '#8e949e', legCol: '#6c727c', shoeCol: '#2a2a2e' }, 'helmet', '#a9aeb7'],
+  peasant: [{ jacket: '#7a5a3a', jacket2: '#5d4429', pattern: ['stripes', '#6a4c31'], details: [], armCol: '#7a5a3a', legCol: '#5a4632' }, 'flat', '#6a5a44'],
+  sailor: [{ jacket: '#e9e6dc', jacket2: '#c9c6bb', pattern: ['hstripes', '#233a6e'], details: [], armCol: '#e9e6dc', legCol: '#233a6e' }, 'flat', '#1f2f55'],
+  merchant: [{ jacket: '#5d2530', jacket2: '#451a23', pattern: ['vest', '#d9b45a'], details: ['vestBtn', 'hanky'], hankyCol: '#efe6d0', moust: true }, 'bowler', '#3a2a2a'],
+  king: [{ jacket: '#a3212a', jacket2: '#7a1820', pattern: ['vest', '#f1e6c8'], details: ['buttons', 'collar'], moust: true, armCol: '#a3212a', legCol: '#3a2a2a' }, 'crown', '#d9b45a'],
+  explorer: [{ jacket: '#bfae7a', jacket2: '#9d8f60', pattern: ['stripes', '#a89a68'], details: ['buttons', 'belt'], moust: true, armCol: '#bfae7a', legCol: '#7a6a44' }, 'wide', '#d8c48a'],
   monarch: [{ jacket: '#2b3b5c', jacket2: '#1d2a46', pattern: ['vest', '#d9b45a'], details: ['buttons', 'collar'], moust: true, armCol: '#2b3b5c', legCol: '#1d2a46', shoeCol: '#16120f' }, 'hair', '#f0f0f6'],
 };
 const CAST = {};
@@ -167,14 +175,18 @@ const tref = (r) => { if (typeof r === 'number') return r; if (r === 'end') retu
 // ---------- positions ----------
 const TT = (t, a, b) => clamp((t - a) / (b - a));
 const siteOf = (name) => SITES[name] || (warn('unknown set', name), SITES.farm);
-function resolvePos(site, ref, off) { const S = siteOf(site); let x, z; if (Array.isArray(ref)) [x, z] = ref; else { const a = ANCH[site]?.[ref]; if (!a) { warn('unknown anchor', site, ref); [x, z] = [0, 0]; } else [x, z] = a; } if (off) { x += off[0]; z += off[1]; } return V(S.o[0] + x, S.liftY || 0, S.o[1] + z); }
-const subjectPos = (site, shot, ref, t) => { if (ref === 'litter' && W.litter.visible) return W.litter.position.clone().setY(1.5); if (typeof ref === 'string' && CAST[ref]) { const A = shot._act[ref]; if (A) return V(A.p.x, A.act === 'kneel' ? 0.95 : 1.4, A.p.z); const r = CAST[ref]; return V(r.root.position.x, 1.4, r.root.position.z); } if (ref === 'curtain') return resolvePos(site, 'curtain_front').setY(1.8); return resolvePos(site, ref ?? 'center').setY(1.3); };
+function resolvePos(site, ref, off) { const S = siteOf(site); let x, z, y = 0; if (Array.isArray(ref)) [x, z, y = 0] = ref; else { const a = ANCH[site]?.[ref]; if (!a) { warn('unknown anchor', site, ref); [x, z] = [0, 0]; } else [x, z, y = 0] = a; } if (off) { x += off[0]; z += off[1]; } return V(S.o[0] + x, (S.liftY || 0) + y, S.o[1] + z); }
+const subjectPos = (site, shot, ref, t) => { const _s = siteOf(site); if (ref === 'litter' && W.litter.visible) return W.litter.position.clone().setY(1.5); if (typeof ref === 'string' && CAST[ref]) { const A = shot._act[ref]; if (A) return V(A.p.x, (A.act === 'kneel' ? 0.95 : A.act === 'sit' ? 1.1 : 1.4) + (A.p.y || 0), A.p.z); const r = CAST[ref]; return V(r.root.position.x, 1.4, r.root.position.z); } if (ref === 'curtain') return resolvePos(site, 'curtain_front').setY(1.8); return resolvePos(site, ref ?? 'center').setY(1.3); };
 
 // ---------- actions ----------
 const LEFT_ = c => dirW(c, 1, 0, 0);
 function pose(c, A, t, tgt) { const act = A.act, s = Math.sin(t * 9);
   switch (act) {
-    case 'walk': break;
+    case 'walk': case 'run': case 'sneak': case 'nod': case 'shake_head': case 'sad': break;
+    case 'sit': { hips(c, -0.25, -0.04); lean(c, 0.08); leg(c, 'Left', Lw(c, 0.14, 0.06, 0.5), dirW(c, 0, 0.5, 1)); leg(c, 'Right', Lw(c, -0.14, 0.06, 0.5), dirW(c, 0, 0.5, 1)); arm(c, 'Left', Lw(c, 0.3, 0.95, 0.35), dirW(c, 1, -0.4, 0)); arm(c, 'Right', Lw(c, -0.3, 0.95, 0.35), dirW(c, -1, -0.4, 0)); break; }
+    case 'write': lean(c, 0.25); arm(c, 'Right', Lw(c, -0.1 + 0.03 * Math.sin(t * 6), 0.98, 0.52), dirW(c, -1, -0.4, 0.2)); arm(c, 'Left', Lw(c, 0.3, 0.98, 0.45), dirW(c, 1, -0.4, 0)); break;
+    case 'drink': { const hc = headC(c); arm(c, 'Right', hc.clone().add(dirW(c, 0, 0, 1).multiplyScalar(0.2)).add(V(0, -0.14, 0)), dirW(c, -1, 0.3, 0.2)); nod(c, -0.12); break; }
+    case 'toast': arm(c, 'Right', Lw(c, -0.35, 1.75 + 0.04 * s, 0.45), dirW(c, -1, 0.3, 0.2)); arm(c, 'Left', Lw(c, 0.1, 1.0, 0.25), dirW(c, 1, -0.4, 0)); break;
     case 'point': pointAt(c, tgt || V(0, 1.2, 0), 'Right'); face(c, A.mood || 'serioust'); break;
     case 'wave': wave1(c, t); break;
     case 'cheer': waveArms(c, t, true); break;
@@ -199,7 +211,7 @@ const SIZE = { ecu: [2.3, 28, 0.0], close: [3.6, 32, 0.1], medium: [5.8, 38, 0.3
 let rifN = 0;
 function stage(S, t) { const site = S.set, SIT = siteOf(site), u = TT(t, S.t0, S.t1); S._act = {}; rifN = 0;
   for (const a of S.actors || []) { const c = CAST[a.id]; if (!c) { warn('no cast', a.id); continue; }
-    const p0 = resolvePos(site, a.at ?? 'center', a.offset), p1 = a.to ? resolvePos(site, a.to, a.offsetTo) : p0, e = a.act === 'walk' || a.to ? u : 0;
+    const p0 = resolvePos(site, a.at ?? 'center', a.offset), p1 = a.to ? resolvePos(site, a.to, a.offsetTo) : p0, e = ['walk', 'run', 'sneak'].includes(a.act) || a.to ? u : 0;
     const p = vl(p0, p1, e); const dir = p1.clone().sub(p0); let ry;
     const fr = a.face ?? (a.to ? 'travel' : 'camera');
     S._act[a.id] = { p, act: a.act || 'idle', a, c, dir, fr, ry }; }
@@ -209,8 +221,12 @@ function stage(S, t) { const site = S.set, SIT = siteOf(site), u = TT(t, S.t0, S
     const rd = S._act[L_.rider]; if (rd) { rd.p = V(p.x, 0, p.z); rd.yOff = 1.1; rd.fr = ry; rd.act = rd.act === 'walk' ? 'idle' : rd.act; }
     (L_.bearers || []).forEach((id, i) => { const bd = S._act[id]; if (!bd) return; const sx = i % 2 ? 1 : -1, sz = i < 2 ? 1.5 : -1.5, c = Math.cos(ry), s = Math.sin(ry); bd.p = V(p.x + sx * 0.95 * c + sz * s, 0, p.z - sx * 0.95 * s + sz * c); bd.fr = ry; bd.act = 'walk'; }); }
   // camera (needs actor positions)
-  const cm = S.camera || {}, sub = subjectPos(site, S, cm.subject, t); if (cm.y != null) sub.y = cm.y; const _ = 0,  [d0, fov0, hOff] = SIZE[cm.size || 'medium'] || SIZE.medium, mv = cm.move || 'static'; let d = d0, az = 0, hgt = sub.y + hOff, lat = 0;
-  if (mv === 'push') d = lerp(d0 * 1.55, d0, eio(u)); else if (mv === 'pull') d = lerp(d0, d0 * 1.55, eio(u)); else if (mv === 'orbit') az = lerp(-0.45, 0.45, eio(u)); else if (mv === 'lateral') lat = lerp(-1.4, 1.4, eio(u)); else if (mv === 'crane_up') hgt += lerp(0, 2.4, eio(u)); else if (mv === 'crane_down') hgt += lerp(2.4, 0, eio(u));
+  const cm = S.camera || {}, sub = subjectPos(site, S, cm.subject, t); if (cm.y != null) sub.y = cm.y;
+  // auto-framing for group shots: centre on the people and back off so everyone fits the narrow portrait frame
+  const _acts = Object.values(S._act); let fitD = 0;
+  if (_acts.length > 1 && cm.size !== 'ecu' && (cm.frame === 'all' || (cm.subject && !CAST[cm.subject] && cm.subject !== 'litter' && cm.subject !== 'curtain'))) { const cx = _acts.reduce((a, A) => a + A.p.x, 0) / _acts.length, cz = _acts.reduce((a, A) => a + A.p.z, 0) / _acts.length; let sp = 0; for (const A of _acts) for (const B of _acts) sp = Math.max(sp, Math.hypot(A.p.x - B.p.x, A.p.z - B.p.z)); sub.x = cx; sub.z = cz; fitD = (sp + 1.4) / (2 * Math.tan(((SIZE[cm.size || 'medium'] || SIZE.medium)[1] + 2) * Math.PI / 360) * 0.5625); }
+   const _ = 0,  [d0, fov0, hOff] = SIZE[cm.size || 'medium'] || SIZE.medium, mv = cm.move || 'static'; let d = Math.max(d0, fitD), az = 0, hgt = sub.y + hOff, lat = 0;
+  const dB = Math.max(d0, fitD); if (mv === 'push') d = lerp(dB * 1.4, dB, eio(u)); else if (mv === 'pull') d = lerp(dB, dB * 1.4, eio(u)); else if (mv === 'orbit') az = lerp(-0.45, 0.45, eio(u)); else if (mv === 'lateral') lat = lerp(-1.4, 1.4, eio(u)); else if (mv === 'crane_up') hgt += lerp(0, 2.4, eio(u)); else if (mv === 'crane_down') hgt += lerp(2.4, 0, eio(u));
   const side = cm.side || 'front', ref = S._act[cm.subject], fa = ref ? (typeof ref.fr === 'number' ? ref.fr : 0) : 0;
   let base = ref ? fa : { front: 0, back: Math.PI, left: -Math.PI / 2, right: Math.PI / 2, above: 0 }[side] ?? 0; if (ref) base += { front: 0, back: Math.PI, left: -1.0, right: 1.0, above: 0.3 }[side] ?? 0;
   if (!ref && (side === 'front' || side === 'above')) base = 0;
@@ -221,12 +237,12 @@ function stage(S, t) { const site = S.set, SIT = siteOf(site), u = TT(t, S.t0, S
   const bx = SIT.box; cp.x = clamp(cp.x, SIT.o[0] - bx[0], SIT.o[0] + bx[0]); cp.z = clamp(cp.z, SIT.o[1] - bx[1], SIT.o[1] + bx[2]);
   // actors
   for (const id in S._act) { const A = S._act[id], c = A.c; let ry; if (typeof A.fr === 'number') ry = A.fr; else if (A.fr === 'camera') ry = yawTo(A.p.x, A.p.z, cp.x, cp.z); else if (A.fr === 'away') ry = yawTo(A.p.x, A.p.z, cp.x, cp.z) + Math.PI; else if (A.fr === 'travel') ry = A.dir.length() > 0.01 ? Math.atan2(A.dir.x, A.dir.z) : 0; else if (CAST[A.fr] || ANCH[site]?.[A.fr]) { const T_ = CAST[A.fr] ? (S._act[A.fr]?.p || CAST[A.fr].root.position) : resolvePos(site, A.fr); ry = yawTo(A.p.x, A.p.z, T_.x, T_.z); } else ry = 0;
-    place(c, A.p.x, A.p.z, ry, (A.p.y || 0) + (A.yOff || 0)); const walking = A.act === 'walk' || (A.a.to && A.act !== 'kneel');
-    if (walking) SR.clipAt(c, 'walk', (t - S.t0) * 0.95 + c.phase); else idle(c, t); face(c, A.a.mood || 'calm');
+    place(c, A.p.x, A.p.z, ry, (A.p.y || 0) + (A.yOff || 0)); const CLIPACT = { walk: 'walk', run: 'run', sneak: 'sneak_pose', nod: 'agree', shake_head: 'headShake', sad: 'sad_pose' }, clip = CLIPACT[A.act] || (A.a.to && A.act !== 'kneel' ? 'walk' : null);
+    if (clip) SR.clipAt(c, clip, (t - S.t0) * (A.act === 'run' ? 1.2 : 0.95) + c.phase); else idle(c, t); face(c, A.a.mood || 'calm');
     let tgt = null; if (A.a.target) tgt = typeof A.a.target === 'string' && CAST[A.a.target] ? (S._act[A.a.target]?.p || CAST[A.a.target].root.position).clone().setY(1.3) : resolvePos(site, A.a.target).setY(1.3);
     pose(c, { ...A.a, act: A.act, ri: rifN++ }, t, tgt); }
   const g = S.grade ?? SIT.grade; G(g); STUDYLIGHT.position.set(SIT.o[0], 4.5, SIT.o[1]); STUDYLIGHT.intensity = (S.light ?? (SIT.light ? 'warm' : 'none')) === 'none' ? 0 : (SIT.light || 3.5);
-  LOOK(cp, sub, lerp(fov0 + 2, fov0, eio(u)), t, cm.roll ? cm.roll * Math.sin(u * 3) : 0); dofT(cm.size === 'ecu' ? 0.03 : cm.size === 'wide' ? 0.003 : 0.012); shadowR = cm.size === 'wide' ? 22 : 9; }
+  LOOK(cp, sub, lerp(fov0 + 2, fov0, eio(u)), t, cm.roll ? cm.roll * Math.sin(u * 3) : 0); W.sky.position.copy(camera.position); W.sea.position.set(camera.position.x, -0.55, camera.position.z); dofT(cm.size === 'ecu' ? 0.03 : cm.size === 'wide' ? 0.003 : 0.012); shadowR = cm.size === 'wide' ? 22 : 9; }
 
 // ---------- frame ----------
 const STUDYLIGHT = new THREE.PointLight('#ffb870', 0, 18, 1.4); scene.add(STUDYLIGHT);
@@ -237,5 +253,6 @@ function renderShot(S, t) { t_now = t; resetScene(); stage(S, t); setLook(gk); O
   U.uTime.value = t; post.render(); }
 let t_now = 0;
 function render(t) { let i = 0; for (let k = 0; k < SH.length; k++) if (t >= SH[k].t0) i = k; renderShot(SH[i], t); return canvas.toDataURL('image/jpeg', 0.92); }
+if (Q.has('dbg')) console.log('CLIPS', JSON.stringify(Object.keys(SR.CLIPS)));
 window.DUR = Math.min(DUR, +(Q.get('dur') || 1e9)); window.frame = render; window.FL = FL; window.ready = true;
 console.log('SHOT_T ' + JSON.stringify(SH.map(x => +x.t0.toFixed(2))));

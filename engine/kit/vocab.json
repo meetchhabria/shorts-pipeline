@@ -27,7 +27,14 @@
   "red_soldier": "British Royal Marine in red tunic and shako",
   "blue_soldier": "US infantry in dark blue with a kepi",
   "official": "man in a dark suit and top hat, moustache",
-  "monarch": "ruler in a dark military coat with gold epaulettes, silver hair, moustache"
+  "monarch": "ruler in a dark military coat with gold epaulettes, silver hair, moustache",
+  "scientist": "inventor/scientist in a white lab coat and flat cap",
+  "knight": "medieval knight in a grey tunic and steel helmet",
+  "peasant": "poor villager in a brown tunic and cloth cap",
+  "sailor": "sailor in a blue striped shirt and flat navy cap",
+  "merchant": "well-off trader in a burgundy vest and bowler hat",
+  "king": "king/queen-like ruler in a red robe and gold crown",
+  "explorer": "explorer in khaki with a wide-brim hat and moustache"
  },
  "sets": {
   "palace": {
@@ -133,6 +140,348 @@
      -9
     ]
    }
+  },
+  "street": {
+   "desc": "period city street at street level: terraced houses both sides, gas lamps, market stalls, a cast-iron pump in the middle, cart and barrels",
+   "anchors": {
+    "center": [
+     0,
+     0
+    ],
+    "pump": [
+     1.3,
+     0
+    ],
+    "left_side": [
+     -4.5,
+     0
+    ],
+    "right_side": [
+     4.5,
+     0
+    ],
+    "far": [
+     0,
+     -14
+    ],
+    "near": [
+     0,
+     12
+    ],
+    "stall": [
+     3.4,
+     -8
+    ],
+    "doorway": [
+     -5.8,
+     -3
+    ]
+   }
+  },
+  "tavern": {
+   "desc": "warm timber inn/pub interior: bar counter with barrels and shelves, two tables with chairs and mugs, fireplace, hanging lanterns",
+   "anchors": {
+    "center": [
+     0,
+     0.5
+    ],
+    "bar": [
+     0,
+     -3.0
+    ],
+    "behind_bar": [
+     0,
+     -4.9
+    ],
+    "seat_left": [
+     -3,
+     2.3
+    ],
+    "seat_left_far": [
+     -3,
+     0.1
+    ],
+    "seat_right": [
+     3,
+     2.3
+    ],
+    "seat_right_far": [
+     3,
+     0.1
+    ],
+    "seat_back": [
+     0,
+     4.7
+    ],
+    "fireplace": [
+     -5.2,
+     -1.2
+    ],
+    "door": [
+     0,
+     4.6
+    ]
+   }
+  },
+  "study": {
+   "desc": "wood-and-green study: writing desk with chair, tall bookshelves, window, globe, rug with two armchairs",
+   "anchors": {
+    "center": [
+     0,
+     1.5
+    ],
+    "desk_seat": [
+     0,
+     -3.8
+    ],
+    "desk_front": [
+     0,
+     -1.2
+    ],
+    "window": [
+     -5.0,
+     0
+    ],
+    "shelf": [
+     2.2,
+     -3.9
+    ],
+    "seat_left": [
+     -2.4,
+     1.6
+    ],
+    "seat_right": [
+     2.4,
+     1.6
+    ],
+    "door": [
+     0,
+     4.5
+    ]
+   }
+  },
+  "workshop": {
+   "desc": "stone laboratory/workshop: benches with coloured flasks, chalkboard with diagram, shelves of jars, glowing furnace",
+   "anchors": {
+    "center": [
+     0,
+     1.5
+    ],
+    "bench": [
+     0,
+     -1.2
+    ],
+    "bench_left": [
+     -3,
+     -1.2
+    ],
+    "bench_right": [
+     3,
+     -1.2
+    ],
+    "blackboard": [
+     3.5,
+     -3.8
+    ],
+    "furnace": [
+     -5.0,
+     1.5
+    ],
+    "table": [
+     2.5,
+     1.5
+    ],
+    "door": [
+     0,
+     4.5
+    ]
+   }
+  },
+  "great_hall": {
+   "desc": "stone castle/hall: columns with torches and banners, throne dais with throne, one very long feasting table with chairs",
+   "anchors": {
+    "throne": [
+     0,
+     -5.3,
+     0.5
+    ],
+    "throne_front": [
+     0,
+     -3.2
+    ],
+    "seat_left": [
+     -2.5,
+     -1.1
+    ],
+    "seat_right": [
+     -2.5,
+     2.1
+    ],
+    "center": [
+     0,
+     3.5
+    ],
+    "left": [
+     -4,
+     0
+    ],
+    "right": [
+     4,
+     0
+    ],
+    "door": [
+     0,
+     5.8
+    ]
+   }
+  },
+  "ship_deck": {
+   "desc": "deck of a wooden sailing ship at sea: two masts with sails, rails, ship's wheel at the stern, crates and barrel",
+   "anchors": {
+    "center": [
+     0,
+     1
+    ],
+    "mast": [
+     1.0,
+     -3
+    ],
+    "bow": [
+     0,
+     -9
+    ],
+    "stern": [
+     0,
+     8
+    ],
+    "wheel": [
+     0,
+     8.6
+    ],
+    "rail_left": [
+     -3.0,
+     0
+    ],
+    "rail_right": [
+     3.0,
+     0
+    ],
+    "crates": [
+     -1.6,
+     1.6
+    ]
+   }
+  },
+  "forest": {
+   "desc": "temperate pine forest clearing with a campfire",
+   "anchors": {
+    "around_left": [
+     -2.4,
+     0.5
+    ],
+    "around_right": [
+     2.4,
+     0.5
+    ],
+    "around_back": [
+     0,
+     -2.4
+    ],
+    "center": [
+     0,
+     3
+    ],
+    "far": [
+     0,
+     -12
+    ],
+    "near": [
+     0,
+     10
+    ],
+    "left": [
+     -6,
+     0
+    ],
+    "right": [
+     6,
+     0
+    ]
+   }
+  },
+  "desert": {
+   "desc": "sandy desert with rocks, cacti and a campfire",
+   "anchors": {
+    "around_left": [
+     -2.4,
+     0.5
+    ],
+    "around_right": [
+     2.4,
+     0.5
+    ],
+    "around_back": [
+     0,
+     -2.4
+    ],
+    "center": [
+     0,
+     3
+    ],
+    "far": [
+     0,
+     -12
+    ],
+    "near": [
+     0,
+     10
+    ],
+    "left": [
+     -6,
+     0
+    ],
+    "right": [
+     6,
+     0
+    ]
+   }
+  },
+  "snowfield": {
+   "desc": "snowy plain with pines and a campfire",
+   "anchors": {
+    "around_left": [
+     -2.4,
+     0.5
+    ],
+    "around_right": [
+     2.4,
+     0.5
+    ],
+    "around_back": [
+     0,
+     -2.4
+    ],
+    "center": [
+     0,
+     3
+    ],
+    "far": [
+     0,
+     -12
+    ],
+    "near": [
+     0,
+     10
+    ],
+    "left": [
+     -6,
+     0
+    ],
+    "right": [
+     6,
+     0
+    ]
+   }
   }
  },
  "actions": [
@@ -148,7 +497,16 @@
   "shout",
   "flinch",
   "hold_rifle",
-  "plead"
+  "plead",
+  "sit",
+  "run",
+  "sneak",
+  "nod",
+  "shake_head",
+  "sad",
+  "write",
+  "drink",
+  "toast"
  ],
  "props": {
   "curtain": "palace only; {\"open\": 0..1 or [from,to], \"sway\": 0..1}. Actor placed at anchor 'curtain' stands hidden behind it with only the feet visible below the hem",
@@ -186,6 +544,16 @@
   "hide": "trembling, arms to chest; combine with anchor 'curtain' to be hidden behind it",
   "walk": "moves from 'at' to 'to' over the shot (face defaults to travel direction)",
   "point": "needs 'target' (cast id or anchor)",
-  "hail": "raised arm salute"
- }
+  "hail": "raised arm salute",
+  "sit": "seated; put the actor ON a seat anchor (e.g. tavern seat_left, study desk_seat, great_hall seat_left) and face the table",
+  "run": "fast movement from 'at' to 'to'",
+  "sneak": "creeping movement from 'at' to 'to'",
+  "nod": "agrees (nodding clip)",
+  "shake_head": "disagrees (head-shake clip)",
+  "sad": "dejected slump",
+  "write": "standing/seated writing at a desk or table",
+  "drink": "raises a drink to the mouth",
+  "toast": "raises a glass high"
+ },
+ "note_sets": "Pick the set whose place best fits the narration; period/era is conveyed by roles and hats (sets are generic). Interiors have a ceiling: use close/medium sizes there; 'wide' works outdoors."
 }

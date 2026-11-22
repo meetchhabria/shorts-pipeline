@@ -70,6 +70,7 @@ RULES
 - Cover the WHOLE narration: shot 0 starts at t0 = 0, later shots start at 'L<n>' or 'L<n>@word' (a word spoken in that line). 8-16 shots, each roughly 2-5 seconds, in time order. Change shot when the narration changes beat.
 - Cast 2-7 people with short lowercase ids; give every named person in the script a cast entry. People not listed in a shot's actors are hidden in that shot.
 - Place people only on the set's anchors (or [x,z]). Use act 'walk' with 'to' for movement. Each actor needs a fitting mood. Show reactions (flinch, kneel, plead, cheer, hail...).
+- People in the same shot should stand close together (within about 5 m: use adjacent anchors); the portrait frame is narrow and the camera backs off to fit everyone, making them tiny if they are far apart.
 - Camera: say who is the subject. Vary size (wide to establish, medium/close for action, ecu sparingly) and move. Portrait frames are narrow: keep the subject centred, use 'wide' only for establishing.
 - NEVER show bodies, blood or gore. Keep it grounded in the historical record; do not invent facts beyond the script.
 - Use hold_rifle only for 1800s stories. Choose the closest available set. If the story truly cannot be staged with these sets/roles, return {{"unsupported": "one sentence why"}}.
