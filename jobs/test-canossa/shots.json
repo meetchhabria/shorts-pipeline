@@ -1,0 +1,218 @@
+{
+ "cast": [
+  {
+   "id": "henry",
+   "role": "king"
+  },
+  {
+   "id": "gregory",
+   "role": "elder"
+  },
+  {
+   "id": "noble1",
+   "role": "noble"
+  },
+  {
+   "id": "noble2",
+   "role": "knight"
+  }
+ ],
+ "shots": [
+  {
+   "t0": 0,
+   "set": "snowfield",
+   "actors": [
+    {
+     "id": "henry",
+     "at": "center",
+     "act": "sad",
+     "mood": "pale",
+     "face": "camera"
+    }
+   ],
+   "camera": {
+    "move": "push",
+    "subject": "henry",
+    "size": "wide",
+    "side": "front"
+   }
+  },
+  {
+   "t0": "L1",
+   "set": "great_hall",
+   "actors": [
+    {
+     "id": "gregory",
+     "at": "throne",
+     "act": "point",
+     "target": "seat_left",
+     "mood": "serioust",
+     "face": "seat_left"
+    },
+    {
+     "id": "noble1",
+     "at": "seat_left",
+     "act": "shake_head",
+     "mood": "serious",
+     "face": "throne"
+    },
+    {
+     "id": "noble2",
+     "at": "seat_right",
+     "act": "shake_head",
+     "mood": "smug",
+     "face": "throne"
+    }
+   ],
+   "camera": {
+    "move": "orbit",
+    "subject": "gregory",
+    "size": "medium",
+    "side": "front"
+   }
+  },
+  {
+   "t0": "L2",
+   "set": "snowfield",
+   "actors": [
+    {
+     "id": "henry",
+     "at": "center",
+     "act": "kneel",
+     "mood": "pale",
+     "face": "far"
+    }
+   ],
+   "camera": {
+    "move": "push",
+    "subject": "henry",
+    "size": "medium",
+    "side": "front",
+    "y": 1.2
+   }
+  },
+  {
+   "t0": "L2@three",
+   "set": "snowfield",
+   "actors": [
+    {
+     "id": "henry",
+     "at": "center",
+     "act": "plead",
+     "mood": "palet",
+     "face": "camera"
+    }
+   ],
+   "camera": {
+    "move": "static",
+    "subject": "henry",
+    "size": "close",
+    "side": "front"
+   }
+  },
+  {
+   "t0": "L3",
+   "set": "great_hall",
+   "actors": [
+    {
+     "id": "gregory",
+     "at": "throne_front",
+     "act": "hail",
+     "mood": "calm",
+     "face": "henry"
+    },
+    {
+     "id": "henry",
+     "at": "center",
+     "act": "kneel",
+     "mood": "serioust",
+     "face": "gregory"
+    }
+   ],
+   "camera": {
+    "move": "crane_down",
+    "subject": "gregory",
+    "size": "medium",
+    "side": "left"
+   }
+  },
+  {
+   "t0": "L3@lifted",
+   "set": "great_hall",
+   "actors": [
+    {
+     "id": "gregory",
+     "at": "throne_front",
+     "act": "nod",
+     "mood": "talk",
+     "face": "henry"
+    },
+    {
+     "id": "henry",
+     "at": "center",
+     "act": "bow",
+     "mood": "calm",
+     "face": "gregory"
+    }
+   ],
+   "camera": {
+    "move": "push",
+    "subject": "gregory",
+    "size": "close",
+    "side": "front"
+   }
+  },
+  {
+   "t0": "L4",
+   "set": "great_hall",
+   "actors": [
+    {
+     "id": "henry",
+     "at": "center",
+     "act": "idle",
+     "mood": "serious",
+     "face": "camera"
+    },
+    {
+     "id": "gregory",
+     "at": "throne_front",
+     "act": "idle",
+     "mood": "smug",
+     "face": "henry"
+    }
+   ],
+   "camera": {
+    "move": "pull",
+    "subject": "henry",
+    "size": "medium",
+    "side": "front"
+   }
+  },
+  {
+   "t0": "L4@humble",
+   "set": "great_hall",
+   "actors": [
+    {
+     "id": "gregory",
+     "at": "throne",
+     "act": "nod",
+     "mood": "smugt",
+     "face": "camera"
+    },
+    {
+     "id": "henry",
+     "at": "center",
+     "act": "sad",
+     "mood": "palet",
+     "face": "camera"
+    }
+   ],
+   "camera": {
+    "move": "crane_up",
+    "subject": "gregory",
+    "size": "wide",
+    "side": "front"
+   }
+  }
+ ]
+}
