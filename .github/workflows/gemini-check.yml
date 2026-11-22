@@ -1,0 +1,22 @@
+name: gemini-check
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
+        run: |
+          python3 -u - <<'PY'
+          import os, json, time, urllib.request, urllib.error
+          k = os.environ['GEMINI_API_KEY']; H = {'x-goog-api-key': k, 'content-type': 'application/json'}
+          ms = json.loads(urllib.request.urlopen(urllib.request.Request('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', headers=H), timeout=60).read())['models']
+          ok = [m['name'].split('/')[-1] for m in ms if 'generateContent' in m.get('supportedGenerationMethods', []) and 'gemini' in m['name']]
+          print('usable gemini models:', ok)
+          for n in [x for x in ok if 'flash' in x and not any(b in x for b in ('image', 'tts', 'live', 'audio', 'embed'))][:12]:
+              t = time.time()
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request(f'https://generativelanguage.googleapis.com/v1beta/models/{n}:generateContent', json.dumps({'contents': [{'parts': [{'text': 'Return JSON {"ok":true}'}]}], 'generationConfig': {'responseMimeType': 'application/json'}}).encode(), H), timeout=45)
+                  print(f'OK   {n}: {time.time()-t:.1f}s')
+              except Exception as e:
+                  print(f'FAIL {n}: {type(e).__name__} {getattr(e, "code", "")} after {time.time()-t:.1f}s')
+          PY
