@@ -1,0 +1,34 @@
+[
+ {
+  "text": "ROME, 41 AD",
+  "from": "L0",
+  "to": "L2",
+  "y": 0.15,
+  "size": 100,
+  "color": "#ffd400"
+ },
+ {
+  "text": "IMPERIAL PALACE",
+  "from": "L0",
+  "to": "L2",
+  "y": 0.21,
+  "size": 52,
+  "color": "#ffffff"
+ },
+ {
+  "text": "ACCIDENTAL EMPEROR",
+  "from": "L2",
+  "to": "end",
+  "y": 0.15,
+  "size": 100,
+  "color": "#ffd400"
+ },
+ {
+  "text": "CLAUDIUS DISCOVERED",
+  "from": "L2",
+  "to": "end",
+  "y": 0.21,
+  "size": 52,
+  "color": "#ffffff"
+ }
+]
