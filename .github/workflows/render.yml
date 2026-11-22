@@ -111,4 +111,5 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - env: { T: "${{ secrets.TELEGRAM_BOT_TOKEN }}" }
-        run: curl -fsS "https://api.telegram.org/bot$T/sendMessage" --data-urlencode "chat_id=${{ inputs.chat_id }}" --data-urlencode "text=Render failed for ${{ inputs.job }}. Details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null
+        run: |
+          curl -fsS "https://api.telegram.org/bot$T/sendMessage" --data-urlencode "chat_id=${{ inputs.chat_id }}" --data-urlencode "text=Render failed for ${{ inputs.job }}. See ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null
