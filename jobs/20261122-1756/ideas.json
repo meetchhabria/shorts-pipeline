@@ -1,0 +1,163 @@
+{
+ "options": [
+  {
+   "title": "How a Hiding Man Became Emperor of Rome",
+   "description": "In 41 AD, Claudius was found hiding behind a curtain in the imperial palace following Caligula's death. The Praetorian Guard declared him Emperor. Sources: Suetonius (Life of Claudius), Josephus (Antiquities of the Jews).",
+   "tags": [
+    "ancient rome",
+    "roman empire",
+    "claudius",
+    "history shorts",
+    "roman history"
+   ],
+   "script_lines": [
+    "In forty-one AD, a terrified middle-aged man hid behind a palace curtain, convinced he was about to be executed.",
+    "Hours after the assassination of Emperor Caligula, nervous soldiers swarmed the imperial palace quarters searching for remaining family members.",
+    "A guard named Gratus noticed two feet peeking out beneath a heavy textile drapery and yanked the fabric aside.",
+    "Instead of drawing a sword, the soldier recognized fifty-year-old Claudius, fell to one knee, and hailed him as Caesar.",
+    "Claudius, who had spent his entire life mocked for his limp and stammer, was carried to the Praetorian camp on a litter.",
+    "The guard unit effectively secured his loyalty with a massive financial bonus, establishing a pattern where soldiers selected the ruler of Rome."
+   ],
+   "cards": [
+    {
+     "text": "ROME, 41 AD",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "IMPERIAL PALACE",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "ACCIDENTAL EMPEROR",
+     "from": "L2",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "CLAUDIUS DISCOVERED",
+     "from": "L2",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "When Julius Caesar Demanded a Higher Ransom",
+   "description": "In 75 BC, young Julius Caesar was captured by Cilician pirates. He insisted they double his ransom demands and bossed them around until released. Sources: Plutarch (Life of Caesar), Suetonius.",
+   "tags": [
+    "julius caesar",
+    "ancient rome",
+    "history",
+    "pirates",
+    "roman history"
+   ],
+   "script_lines": [
+    "When Mediterranean pirates kidnapped twenty-five-year-old Julius Caesar, he insulted their math and demanded they double his ransom.",
+    "Off the coast of Pharmacusa, pirates captured the young noble and demanded twenty talents of silver for his safe release.",
+    "Caesar laughed in their faces, claiming he was worth at least fifty talents, and sent his servants to gather the higher sum.",
+    "For nearly thirty-eight days, he treated his captors like subordinates, writing speeches and forcing the pirates to listen.",
+    "Whenever they failed to admire his poetry, he openly warned them that he would return with a fleet to capture them all.",
+    "The pirates treated his threats as a joke until the ransom arrived, after which Caesar raised a navy and tracked down their camp."
+   ],
+   "cards": [
+    {
+     "text": "PHARMACUSA, 75 BC",
+     "from": "L0",
+     "to": "L3",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "PIRATE RANSOM",
+     "from": "L0",
+     "to": "L3",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "50 TALENTS OF SILVER",
+     "from": "L3",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "A PROMISE KEPT",
+     "from": "L3",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Origin of the Line in the Sand",
+   "description": "In 168 BC, Roman envoy Gaius Popillius Laenas drew a circle in the dirt around King Antiochus IV, forcing a peace decision on the spot. Sources: Polybius (Histories 29.27), Livy (Ab Urbe Condita 45.12).",
+   "tags": [
+    "ancient history",
+    "rome",
+    "diplomacy",
+    "line in the sand",
+    "history shorts"
+   ],
+   "script_lines": [
+    "The phrase drawing a line in the sand began with one audacious Roman diplomat facing down an invading King.",
+    "In one hundred sixty-eight BC, King Antiochus the Fourth marched his Seleucid army into Egypt, preparing to take Alexandria.",
+    "A single Roman envoy named Gaius Popillius Laenas met the king outside the city, holding only a simple wooden staff.",
+    "When Antiochus offered a friendly greeting, Popillius handed over a Senate decree demanding an immediate military retreat.",
+    "The king asked for time to consult his councilors, but Popillius drew a circle in the dirt around the monarch's feet.",
+    "He told the king to give his answer before stepping across the line, forcing Antiochus to yield to Rome without drawing a sword."
+   ],
+   "cards": [
+    {
+     "text": "EGYPT, 168 BC",
+     "from": "L0",
+     "to": "L4",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "THE FIRST LINE IN SAND",
+     "from": "L0",
+     "to": "L4",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "CIRCLE IN THE DIRT",
+     "from": "L4",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "DIPLOMACY BY STAFF",
+     "from": "L4",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  }
+ ]
+}
