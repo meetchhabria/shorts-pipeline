@@ -13,10 +13,23 @@ jobs:
   prepare:
     runs-on: ubuntu-24.04
     outputs:
+      scene: ${{ steps.scene.outputs.scene }}
       frames: ${{ steps.n.outputs.frames }}
       list: ${{ steps.n.outputs.list }}
     steps:
       - uses: actions/checkout@v4
+      - id: scene
+        env:
+          T: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT: ${{ inputs.chat_id || vars.TELEGRAM_OWNER_CHAT_ID }}
+        run: |
+          # GUARD: never render a topic that has no staged scene (it would silently reuse another video's visuals)
+          if [ -f jobs/${{ inputs.job }}/shots.json ]; then echo "scene=kit" >> $GITHUB_OUTPUT
+          elif [ "${{ inputs.job }}" = "pig-war" ]; then echo "scene=pigwar" >> $GITHUB_OUTPUT
+          else
+            curl -fsS "https://api.telegram.org/bot$T/sendMessage" --data-urlencode "chat_id=$CHAT" --data-urlencode "text=Render stopped: job ${{ inputs.job }} has no storyboard/scene yet, so it would show the wrong visuals. Nothing was rendered." >/dev/null
+            echo "::error::no storyboard for ${{ inputs.job }}"; exit 1
+          fi
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu-core
       - run: bash pipeline/prepare.sh jobs/${{ inputs.job }}
       - id: n
@@ -31,6 +44,7 @@ jobs:
           path: |
             jobs/${{ inputs.job }}/cap/overlay.mov
             jobs/${{ inputs.job }}/timing.json
+            jobs/${{ inputs.job }}/shots.json
             engine/film/words.json
             engine/film/lines.json
   shard:
@@ -43,7 +57,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with: { name: "prep-${{ inputs.job }}", path: prep }
-      - run: cp prep/engine/film/*.json engine/film/
+      - run: |
+          cp prep/engine/film/*.json engine/film/
+          [ -f prep/jobs/${{ inputs.job }}/shots.json ] && cp prep/jobs/${{ inputs.job }}/shots.json engine/film/shots.json || true
       - uses: actions/setup-node@v4
         with: { node-version: 20, cache: npm, cache-dependency-path: engine/package-lock.json }
       - run: |
@@ -54,6 +70,7 @@ jobs:
         working-directory: engine
       - name: render shard ${{ matrix.i }}
         working-directory: engine
+        env: { XQ: "&scene=${{ needs.prepare.outputs.scene }}" }
         run: |
           F=${{ needs.prepare.outputs.frames }}; S=${{ inputs.shards }}; I=${{ matrix.i }}
           export FROM=$(( F * I / S )) TO=$(( F * (I + 1) / S ))
@@ -88,3 +105,10 @@ jobs:
           curl -fsS "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendVideo" -F chat_id=${{ inputs.chat_id }} -F video=@out/final_${{ inputs.job }}.mp4 -F supports_streaming=true -F width=1080 -F height=1920 \
             -F caption="Render ready: ${{ inputs.job }}. Approve to schedule, or request changes." \
             -F 'reply_markup={"inline_keyboard":[[{"text":"Approve","callback_data":"approve:${{ inputs.job }}"},{"text":"Changes","callback_data":"changes:${{ inputs.job }}"}]]}'
+  notify_failure:
+    needs: [prepare, shard, finish]
+    if: ${{ always() && contains(needs.*.result, 'failure') && inputs.chat_id != '' }}
+    runs-on: ubuntu-24.04
+    steps:
+      - env: { T: "${{ secrets.TELEGRAM_BOT_TOKEN }}" }
+        run: curl -fsS "https://api.telegram.org/bot$T/sendMessage" --data-urlencode "chat_id=${{ inputs.chat_id }}" --data-urlencode "text=Render failed for ${{ inputs.job }}. Details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >/dev/null

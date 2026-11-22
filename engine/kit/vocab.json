@@ -1,0 +1,191 @@
+{
+ "version": 1,
+ "note": "Everything a storyboard (film/shots.json) may reference. The director and pipeline/storyboard.py both read this file.",
+ "moods": [
+  "calm",
+  "talk",
+  "wide",
+  "shout",
+  "listen",
+  "serious",
+  "serioust",
+  "laugh",
+  "smug",
+  "smugt",
+  "flat",
+  "pale",
+  "palet",
+  "squint",
+  "grin"
+ ],
+ "roles": {
+  "commoner": "ordinary person in a plain tunic or shirt and flat cap",
+  "elder": "older man in a grey robe",
+  "noble": "wealthy person in a white toga with a purple stripe and laurel wreath (Roman era)",
+  "roman_soldier": "Roman guard in a red tunic and crested helmet",
+  "settler": "frontier farmer in a cream shirt, suspenders, wide-brim hat, moustache",
+  "red_soldier": "British Royal Marine in red tunic and shako",
+  "blue_soldier": "US infantry in dark blue with a kepi",
+  "official": "man in a dark suit and top hat, moustache",
+  "monarch": "ruler in a dark military coat with gold epaulettes, silver hair, moustache"
+ },
+ "sets": {
+  "palace": {
+   "desc": "Roman palace hall: marble floor, columns with torches, red painted walls, a heavy curtained alcove on the back wall, a litter available as a prop",
+   "anchors": {
+    "center": [
+     0,
+     0
+    ],
+    "curtain": [
+     0,
+     -6.2
+    ],
+    "curtain_front": [
+     0,
+     -4.3
+    ],
+    "door": [
+     0,
+     6
+    ],
+    "left": [
+     -3,
+     0
+    ],
+    "right": [
+     3,
+     0
+    ],
+    "far": [
+     0,
+     -2.5
+    ],
+    "near": [
+     0,
+     3
+    ]
+   }
+  },
+  "farm": {
+   "desc": "sunny potato field with fence, log cabin, pine forest and sea in the distance",
+   "anchors": {
+    "center": [
+     0,
+     1.5
+    ],
+    "field": [
+     -2,
+     1.5
+    ],
+    "fence": [
+     -3,
+     4.8
+    ],
+    "cabin": [
+     -9,
+     -5
+    ],
+    "gate": [
+     3,
+     5.5
+    ]
+   }
+  },
+  "camps": {
+   "desc": "grassy ridge with two facing military camps (tents, flags): blue (US) camp at +z and red (British) camp at -z, no-man's land between",
+   "anchors": {
+    "gap": [
+     0,
+     0
+    ],
+    "blue_line": [
+     0,
+     6.5
+    ],
+    "red_line": [
+     0,
+     -6.5
+    ],
+    "blue_camp": [
+     0,
+     12
+    ],
+    "red_camp": [
+     0,
+     -12
+    ]
+   }
+  },
+  "pier": {
+   "desc": "wooden pier on a calm bay with a tall sailing ship moored at the end",
+   "anchors": {
+    "shore": [
+     0,
+     12
+    ],
+    "mid": [
+     0,
+     2
+    ],
+    "end": [
+     0,
+     -9
+    ]
+   }
+  }
+ },
+ "actions": [
+  "idle",
+  "walk",
+  "point",
+  "wave",
+  "cheer",
+  "hide",
+  "kneel",
+  "bow",
+  "hail",
+  "shout",
+  "flinch",
+  "hold_rifle",
+  "plead"
+ ],
+ "props": {
+  "curtain": "palace only; {\"open\": 0..1 or [from,to], \"sway\": 0..1}. Actor placed at anchor 'curtain' stands hidden behind it with only the feet visible below the hem",
+  "litter": "{\"from\":anchor|[x,z], \"to\":anchor|[x,z], \"rider\": cast id, \"bearers\": [cast ids]}: a carried platform that moves from..to over the shot"
+ },
+ "camera": {
+  "moves": [
+   "push",
+   "pull",
+   "orbit",
+   "lateral",
+   "crane_up",
+   "crane_down",
+   "static"
+  ],
+  "sizes": {
+   "ecu": "face only",
+   "close": "head and shoulders",
+   "medium": "waist up, a person or two",
+   "wide": "whole scene"
+  },
+  "sides": [
+   "front",
+   "left",
+   "right",
+   "back",
+   "above"
+  ],
+  "extras": "optional: \"subject\" (cast id | anchor | 'curtain'), \"y\" (world height in metres to aim at, e.g. 0.4 for feet), \"roll\" (small dutch tilt 0..0.1)"
+ },
+ "timing": "t0 of each shot is 'L<n>' (start of narration line n), 'L<n>@<word>' (when that word is spoken; optional '#2' for the 2nd occurrence), or seconds. Shots must be listed in time order and the first starts at 0.",
+ "action_notes": {
+  "hold_rifle": "19th-century musket; only for 1800s stories",
+  "kneel": "drops to one knee",
+  "hide": "trembling, arms to chest; combine with anchor 'curtain' to be hidden behind it",
+  "walk": "moves from 'at' to 'to' over the shot (face defaults to travel direction)",
+  "point": "needs 'target' (cast id or anchor)",
+  "hail": "raised arm salute"
+ }
+}

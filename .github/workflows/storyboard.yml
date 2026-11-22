@@ -1,0 +1,23 @@
+name: storyboard
+on:
+  workflow_dispatch:
+    inputs:
+      job: { description: "job id", required: true }
+permissions: { contents: write }
+concurrency: { group: repo-writes, cancel-in-progress: false }
+jobs:
+  storyboard:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: write shots.json
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_OWNER_CHAT_ID: ${{ vars.TELEGRAM_OWNER_CHAT_ID }}
+        run: python3 pipeline/storyboard.py "${{ inputs.job }}"
+      - run: |
+          git config user.name shorts-bot; git config user.email "bot@users.noreply.github.com"
+          git add jobs; git commit -m "storyboard: ${{ inputs.job }}" || exit 0
+          git pull --rebase -q; git push -q

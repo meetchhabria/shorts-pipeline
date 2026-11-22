@@ -22,8 +22,8 @@ async function handle(u, env) {
     if (kind === 'pick') { const ideas = JSON.parse(await getText(env, `jobs/${job}/ideas.json`)), o = ideas.options[+n - 1];
       await putFile(env, `jobs/${job}/script.txt`, o.script_lines.join('\n') + '\n', `script: ${o.title}`); await putFile(env, `jobs/${job}/cards.json`, JSON.stringify(o.cards, null, 1), 'cards');
       await putFile(env, `jobs/${job}/meta.json`, JSON.stringify({ title: o.title, description: o.description, tags: o.tags }, null, 1), 'meta');
-      st = { ...st, phase: 'voice', job }; await setState(env, st);
-      await say(env, `Picked: ${o.title}\n\nGenerate this in ElevenLabs and send me the MP3 (as a file or audio):`); await say(env, o.script_lines.join('\n')); return; }
+      await dispatch(env, 'storyboard.yml', { job }); st = { ...st, phase: 'voice', job }; await setState(env, st);
+      await say(env, `Picked: ${o.title}\n\nI am building the storyboard in the background (I will tell you if the story cannot be staged). Meanwhile generate this in ElevenLabs and send me the MP3:`); await say(env, o.script_lines.join('\n')); return; }
     if (kind === 'approve') { st = { ...st, phase: 'schedule', job }; await setState(env, st); return say(env, `Approved. When should it go live? Reply like: 2026-11-25 18:00 (time zone ${tzLabel(st.tzMin)}; change with /tz +05:30)`); }
     if (kind === 'changes') { st = { ...st, phase: 'changes', job }; await setState(env, st); return say(env, 'What should change? Reply with a note (for example "make the pig bigger, slow the cut at 13 s"). I will pick it up in the next editing session.'); }
     return; }
@@ -35,13 +35,14 @@ async function handle(u, env) {
   if (text.startsWith('/ideas')) { const job = jobId(); await dispatch(env, 'ideas.yml', { mode: 'ideas', job, hint: text.replace('/ideas', '').trim() }); st = { ...st, phase: 'pick', job }; await setState(env, st); return say(env, 'Thinking up 3 options… (about a minute)'); }
   const media = m.audio || m.voice || (m.document?.mime_type?.startsWith('audio') ? m.document : null) || (m.document?.file_name?.match(/\.(mp3|wav|m4a|ogg)$/i) ? m.document : null);
   if (media) { if (st.phase !== 'voice') return say(env, 'I was not waiting for a voiceover. Use /ideas or send a script first.');
+    const sbr = await gh(env, `/contents/jobs/${st.job}/shots.json`); if (!sbr.ok) return say(env, 'The storyboard for this script is not ready (or the story could not be staged), so I will not render it. Wait for the "Storyboard ready" message, or pick another idea.');
     await dispatch(env, 'intake.yml', { job: st.job, file_id: media.file_id, chat_id: String(env.OWNER_CHAT_ID) }); st.phase = 'rendering'; await setState(env, st); return say(env, 'Got the voiceover. Rendering now (about 15–20 min); I will send the video when it is ready.'); }
   if (st.phase === 'schedule') { const mm = text.match(/(\d{4})-(\d{2})-(\d{2})[ T](\d{1,2}):(\d{2})/); if (!mm) return say(env, 'Format: 2026-11-25 18:00');
     const utc = new Date(Date.UTC(+mm[1], +mm[2] - 1, +mm[3], +mm[4], +mm[5]) - st.tzMin * 60000).toISOString(); await putFile(env, `jobs/${st.job}/schedule.json`, JSON.stringify({ publishAtUtc: utc, requestedLocal: text, tzMin: st.tzMin }, null, 1), 'schedule');
     st.phase = 'idle'; await setState(env, st); return say(env, `Saved: publish at ${utc} UTC. (YouTube upload is not connected yet, so I will hold the file until that step is built.)`); }
   if (st.phase === 'changes') { await putFile(env, `jobs/${st.job}/changes.md`, `${text}\n`, 'change request'); st.phase = 'idle'; await setState(env, st); return say(env, 'Noted in jobs/' + st.job + '/changes.md.'); }
   if (text && !text.startsWith('/')) { const lines = text.split('\n').map(s => s.trim()).filter(Boolean), job = jobId();
-    await putFile(env, `jobs/${job}/script.txt`, lines.join('\n') + '\n', 'custom script'); await dispatch(env, 'ideas.yml', { mode: 'cards', job, hint: '' }); st = { ...st, phase: 'voice', job }; await setState(env, st);
+    await putFile(env, `jobs/${job}/script.txt`, lines.join('\n') + '\n', 'custom script'); await dispatch(env, 'ideas.yml', { mode: 'cards', job, hint: '' }); await dispatch(env, 'storyboard.yml', { job }); st = { ...st, phase: 'voice', job }; await setState(env, st);
     return say(env, `Using your script (${lines.length} lines). Generate the voiceover in ElevenLabs and send me the MP3. I am preparing on-screen cards in the background.`); }
   return say(env, HELP);
 }

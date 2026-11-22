@@ -7,3 +7,5 @@ engine/out/
 engine/assets/rigs/Xbot.glb
 engine/film/Anton.ttf
 engine/film/Inter-Black.otf
+engine/film/shots.json
+engine/deno.lock
