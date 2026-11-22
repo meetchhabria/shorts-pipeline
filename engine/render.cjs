@@ -18,8 +18,9 @@ const CHROME = process.env.CHROME || ['/Applications/Google Chrome.app/Contents/
     const dur = await page.evaluate(() => window.DUR), n = Math.round(dur * +fps), t0 = Date.now();
     const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', fps, '-c:v', 'mjpeg', '-i', '-', '-c:v', 'libx264', '-crf', '20', '-preset', 'veryfast', '-pix_fmt', 'yuv420p', path.join(ROOT, OUT)]);
     const done = new Promise(r => ff.on('close', r));
-    for (let f = 0; f < n; f++) { const d = await page.evaluate(t => window.frame(t), f / +fps); if (!ff.stdin.write(Buffer.from(d.split(',')[1], 'base64'))) await new Promise(r => ff.stdin.once('drain', r)); if (f % 24 === 0) process.stdout.write(`\r${f}/${n}`); }
-    ff.stdin.end(); await done; console.log(`\n${n} frames in ${((Date.now() - t0) / 1000).toFixed(0)}s -> ${OUT}`);
+    const F0 = +(process.env.FROM || 0), F1 = Math.min(n, +(process.env.TO || n));
+    for (let f = F0; f < F1; f++) { const d = await page.evaluate(t => window.frame(t), f / +fps); if (!ff.stdin.write(Buffer.from(d.split(',')[1], 'base64'))) await new Promise(r => ff.stdin.once('drain', r)); if (f % 24 === 0) process.stdout.write(`\r${f}/${F1}`); }
+    ff.stdin.end(); await done; console.log(`\n${F1 - F0} frames (${F0}-${F1}) in ${((Date.now() - t0) / 1000).toFixed(0)}s -> ${OUT}`);
   }
   await browser.close(); srv.close();
 })().catch(e => { console.error(e); process.exit(1); });

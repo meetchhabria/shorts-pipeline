@@ -1,0 +1,82 @@
+# Full render of a job (jobs/<name>/{script.txt,cards.json,voice.mp3}): timing+captions -> N parallel frame shards (software GL) -> stitch + mux.
+name: render
+on:
+  workflow_dispatch:
+    inputs:
+      job: { description: "job folder name under jobs/", required: true, default: pig-war }
+      shards: { description: "parallel render shards", required: true, default: "8" }
+env:
+  CHROME: /usr/bin/google-chrome
+  CHROME_ARGS: --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --ignore-gpu-blocklist --no-sandbox
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    outputs:
+      frames: ${{ steps.n.outputs.frames }}
+      list: ${{ steps.n.outputs.list }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu-core
+      - run: bash pipeline/prepare.sh jobs/${{ inputs.job }}
+      - id: n
+        run: |
+          D=$(python3 -c "import json;print(json.load(open('jobs/${{ inputs.job }}/timing.json'))['duration'])")
+          F=$(python3 -c "print(round($D*30))"); S=${{ inputs.shards }}
+          echo "frames=$F" >> $GITHUB_OUTPUT
+          echo "list=$(python3 -c "print(list(range($S)))")" >> $GITHUB_OUTPUT
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prep-${{ inputs.job }}
+          path: |
+            jobs/${{ inputs.job }}/cap/overlay.mov
+            jobs/${{ inputs.job }}/timing.json
+            engine/film/words.json
+            engine/film/lines.json
+  shard:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix: { i: "${{ fromJSON(needs.prepare.outputs.list) }}" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: "prep-${{ inputs.job }}", path: prep }
+      - run: cp prep/engine/film/*.json engine/film/
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm, cache-dependency-path: engine/package-lock.json }
+      - run: |
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+          bash scripts/fetch-core.sh
+      - run: npm ci
+        working-directory: engine
+      - name: render shard ${{ matrix.i }}
+        working-directory: engine
+        run: |
+          F=${{ needs.prepare.outputs.frames }}; S=${{ inputs.shards }}; I=${{ matrix.i }}
+          export FROM=$(( F * I / S )) TO=$(( F * (I + 1) / S ))
+          node render.cjs out/shard-$I.mp4 1080 1920 30 | tr '\r' '\n' | tail -2
+      - uses: actions/upload-artifact@v4
+        with: { name: "shard-${{ matrix.i }}", path: "engine/out/shard-${{ matrix.i }}.mp4" }
+  finish:
+    needs: [prepare, shard]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - uses: actions/download-artifact@v4
+        with: { pattern: "shard-*", path: shards }
+      - uses: actions/download-artifact@v4
+        with: { name: "prep-${{ inputs.job }}", path: prep }
+      - name: stitch + mux
+        run: |
+          mkdir -p jobs/${{ inputs.job }}/cap out
+          cp prep/jobs/${{ inputs.job }}/cap/overlay.mov jobs/${{ inputs.job }}/cap/
+          for i in $(seq 0 $(( ${{ inputs.shards }} - 1 ))); do echo "file '$PWD/shards/shard-$i/shard-$i.mp4'"; done > list.txt
+          ffmpeg -y -v error -f concat -safe 0 -i list.txt -c copy out/raw.mp4
+          bash pipeline/mux.sh jobs/${{ inputs.job }} out/raw.mp4 out/final_${{ inputs.job }}.mp4
+          ffprobe -v error -show_entries stream=codec_name,pix_fmt,width,height,duration -of csv=p=0 out/final_${{ inputs.job }}.mp4
+          ffmpeg -hide_banner -i out/final_${{ inputs.job }}.mp4 -af ebur128 -f null - 2>&1 | grep "I:" | tail -1
+      - uses: actions/upload-artifact@v4
+        with: { name: "final-${{ inputs.job }}", path: "out/final_${{ inputs.job }}.mp4" }

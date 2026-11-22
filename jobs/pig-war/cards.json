@@ -1,0 +1,58 @@
+[
+ {
+  "text": "1859",
+  "from": "L0",
+  "to": "L1",
+  "y": 0.15,
+  "size": 104,
+  "color": "#ffd400"
+ },
+ {
+  "text": "SAN JUAN ISLAND",
+  "from": "L0",
+  "to": "L1",
+  "y": 0.21,
+  "size": 52,
+  "color": "#ffffff"
+ },
+ {
+  "text": "2,000+ MEN, 1 ISLAND",
+  "from": 15.9,
+  "to": "L2",
+  "y": 0.15,
+  "size": 84,
+  "color": "#ffd400"
+ },
+ {
+  "text": "U.S. ARMY vs ROYAL MARINES",
+  "from": 15.9,
+  "to": "L2",
+  "y": 0.21,
+  "size": 46,
+  "color": "#ffffff"
+ },
+ {
+  "text": "12 YEARS: NO ONE HURT",
+  "from": "L2",
+  "to": "L3",
+  "y": 0.15,
+  "size": 84,
+  "color": "#ffd400"
+ },
+ {
+  "text": "KAISER WILHELM I, 1872",
+  "from": "L2",
+  "to": "L3",
+  "y": 0.21,
+  "size": 50,
+  "color": "#ffffff"
+ },
+ {
+  "text": "CASUALTIES: 1 PIG",
+  "from": "L3",
+  "to": "end",
+  "y": 0.15,
+  "size": 92,
+  "color": "#ffd400"
+ }
+]

@@ -3,8 +3,9 @@
 ffprobe duration + syllable-ish word-length weighting; punctuation pauses are snapped to silences actually found in the audio."""
 import json, re, subprocess, shutil, os
 import bisect
-D = os.path.dirname(os.path.abspath(__file__))
-ENG = os.path.expanduser('~/.claude/skills/claude-3d-animated-shorts/engine/film')
+import sys
+D = os.path.abspath(sys.argv[1])   # job dir: script.txt + voice.mp3 in, timing/words/lines.json out
+ENG = os.path.abspath(sys.argv[2]) if len(sys.argv) > 2 else os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'engine', 'film')
 dur = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'{D}/voice.mp3']).decode())
 sil = subprocess.run(['ffmpeg', '-hide_banner', '-i', f'{D}/voice.mp3', '-af', 'silencedetect=noise=-35dB:d=0.15', '-f', 'null', '-'], capture_output=True, text=True).stderr
 ss = [float(x) for x in re.findall(r'silence_start: ([\d.]+)', sil)]; se = [float(x) for x in re.findall(r'silence_end: ([\d.]+)', sil)]
