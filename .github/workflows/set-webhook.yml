@@ -1,0 +1,15 @@
+name: set-webhook
+on:
+  workflow_dispatch:
+    inputs:
+      worker_url: { description: "Worker base URL", required: true, default: "https://shorts-bot.chhabriameet.workers.dev" }
+jobs:
+  hook:
+    runs-on: ubuntu-24.04
+    steps:
+      - env:
+          T: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          S: ${{ secrets.WEBHOOK_SECRET }}
+        run: |
+          curl -fsS "https://api.telegram.org/bot$T/setWebhook" --data-urlencode "url=${{ inputs.worker_url }}/tg" --data-urlencode "secret_token=$S" --data-urlencode 'allowed_updates=["message","callback_query"]' --data-urlencode "drop_pending_updates=true" >/dev/null
+          curl -fsS "https://api.telegram.org/bot$T/getWebhookInfo" | python3 -c "import sys,json;r=json.load(sys.stdin)['result'];print({k:r.get(k) for k in ('url','pending_update_count','last_error_message')})"
