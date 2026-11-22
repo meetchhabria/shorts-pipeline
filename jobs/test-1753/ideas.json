@@ -1,0 +1,160 @@
+{
+ "options": [
+  {
+   "title": "The Pump Handle That Changed Medicine #Shorts",
+   "description": "In 1854, Dr. John Snow mapped London's Soho cholera outbreak to a single water pump handle, helping launch modern epidemiology.\n\nSources:\n- Snow, John. 'On the Mode of Communication of Cholera', 1855.\n- Vinten-Johansen et al., 'Cholera, Chloroform, and the Science of Medicine: A Life of John Snow', Oxford University Press.",
+   "tags": [
+    "history",
+    "london",
+    "science",
+    "epidemiology",
+    "johnsnow"
+   ],
+   "script_lines": [
+    "In 1854, a single water pump handle in London changed the history of medicine forever.",
+    "As cholera struck Soho, physician John Snow suspected contaminated water, not foul air, was spreading the illness.",
+    "He plotted sick households on a street map, tracing the cluster directly to the Broad Street pump.",
+    "Snow persuaded local leaders to remove the wooden pump handle, disabling the contaminated well.",
+    "The neighborhood outbreak rapidly subsided, laying the foundation for modern public health tracking."
+   ],
+   "cards": [
+    {
+     "text": "SOHO, LONDON, 1854",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "CHOLERA OUTBREAK",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "THE BROAD STREET PUMP",
+     "from": "L2",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "PUMP HANDLE REMOVED",
+     "from": "L3",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The 1904 Olympic Marathon Car Fraud #Shorts",
+   "description": "At the 1904 St. Louis Olympics, Fred Lorz crossed the finish line first after riding 11 miles inside a car.\n\nSources:\n- International Olympic Committee (IOC) Historical Archives, 1904 St. Louis Games.\n- Matthews, George R., 'America's First Olympic Games', University of Missouri Press.",
+   "tags": [
+    "history",
+    "olympics",
+    "sports",
+    "stlouis",
+    "bizarre"
+   ],
+   "script_lines": [
+    "The 1904 Olympic marathon winner rode to victory inside a nine-horsepower automobile.",
+    "American runner Fred Lorz cramped nine miles into the race and flagged down his manager's car.",
+    "He waved at spectators for eleven miles before the car broke down, prompting him to walk back onto the track.",
+    "Lorz crossed the finish line first and posed for photos with Alice Roosevelt before officials uncovered the truth.",
+    "He claimed it was just a prank, leaving gold to Thomas Hicks, who ran while consuming egg whites and strychnine."
+   ],
+   "cards": [
+    {
+     "text": "ST. LOUIS, 1904",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "OLYMPIC MARATHON CHEAT",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "11 MILES IN A CAR",
+     "from": "L2",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "DISQUALIFIED WINNER",
+     "from": "L3",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "Tycho Brahe's Silver Nose #Shorts",
+   "description": "Famous 16th-century astronomer Tycho Brahe lost the bridge of his nose in a duel over mathematics and wore a metal prosthetic for life.\n\nSources:\n- Christianson, John Robert, 'On Tycho's Island: Tycho Brahe and His Assistants', Cambridge University Press.\n- Danish National Museum archaeological analysis of Tycho Brahe's remains (2012).",
+   "tags": [
+    "history",
+    "astronomy",
+    "tychobrahe",
+    "weirdhistory",
+    "science"
+   ],
+   "script_lines": [
+    "In 1566, a famous astronomer lost his nose in a sword duel over a math equation.",
+    "Twenty-year-old Danish nobleman Tycho Brahe argued with his cousin about who was the superior mathematician.",
+    "The quarrel ended in a duel in pitch darkness, where Tycho lost the bridge of his nose.",
+    "For the rest of his life, Tycho wore a custom prosthetic forged from silver and gold alloy.",
+    "He carried a small container of adhesive paste everywhere to keep his metallic nose glued in place."
+   ],
+   "cards": [
+    {
+     "text": "ROSTOCK, 1566",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "DUEL OVER MATHEMATICS",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "TYCHO BRAHE",
+     "from": "L2",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "THE SILVER NOSE",
+     "from": "L3",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  }
+ ]
+}
