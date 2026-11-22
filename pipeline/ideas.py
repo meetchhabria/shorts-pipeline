@@ -7,6 +7,7 @@ R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); D = f'{R}/jo
 RULES = """Format: vertical 9:16 animated history Short, voiced by one narrator, 36-45 seconds spoken (about 100-150 words, never under 95), 4-8 lines (one line per scene beat, line 1 is a hook).
 Tone: punchy, grounded in the historical record. NEVER show or describe bodies or gore. Do not overclaim causes; say 'subsided' not 'definitively stopped'. Only use facts you are confident are accurate. Prefer topics with a small cast (2-4 people) in one place around one object or place.
 Cards: short on-screen callouts (ALL CAPS, <= 28 chars) like 'SOHO, 1854' or '500+ DEATHS / 10 DAYS'. Each card: {"text","from":"L0","to":"L1","y":0.15,"size":100,"color":"#ffd400"}; put a smaller second white card at y 0.21 size 52 for a subtitle. from/to are line ids L0..Ln or "end"."""
+STYLE = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "style.md")).read()
 SCHEMA = '{"options":[{"title":"...","description":"YouTube description with sources","tags":["..."],"script_lines":["line 1 (hook)","line 2","..."],"cards":[{...}]}]}'
 def pick_model():
     """GEMINI_MODEL if set; otherwise the newest stable 'flash' text model this key can call (model names change, so ask the API)."""
@@ -45,7 +46,7 @@ def valid(o):
 def main():
     if mode == 'ideas':
         past = sorted({open(f).read().split('\n')[0][:80] for f in glob.glob(f'{R}/jobs/*/script.txt')} | {l.strip() for l in open(f'{R}/jobs/_history.txt') if l.strip()})
-        out = gemini(f"""{RULES}\n\nWrite 3 different script options for tomorrow's Short{(' about: ' + hint) if hint else ''}. Avoid repeating these earlier topics (first lines): {json.dumps(past)}.\nReturn JSON exactly like {SCHEMA} with 3 options.""")
+        out = gemini(f"""{RULES}\n\nStyle notes (inspiration only, original stories):\n{STYLE}\n\nWrite 3 different script options for tomorrow's Short{(' about: ' + hint) if hint else ''}. Avoid repeating these earlier topics (first lines): {json.dumps(past)}.\nReturn JSON exactly like {SCHEMA} with 3 options.""")
         opts = [valid(o) for o in out['options'][:3]]; json.dump({'options': opts}, open(f'{D}/ideas.json', 'w'), indent=1)
         txt = '\n\n'.join(f"{i+1}. {o['title']}\n" + '\n'.join(o['script_lines']) for i, o in enumerate(opts))
         tg('Morning options:\n\n' + txt + '\n\nTap one, or reply with your own script.', {'inline_keyboard': [[{'text': f'Use {i+1}', 'callback_data': f'pick:{job}:{i+1}'} for i in range(len(opts))]]})
