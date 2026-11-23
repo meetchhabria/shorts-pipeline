@@ -1,0 +1,217 @@
+{
+ "options": [
+  {
+   "title": "The Doctor Who Was Mocked For Washing His Hands",
+   "description": "In 1847, Dr. Ignaz Semmelweis discovered that washing hands in chlorine solution dramatically reduced hospital mortality, despite fierce backlash from his peers.\n\nSources:\n- Carter, K. C. (1983). Childbed Fever: A Scientific Biography of Ignaz Semmelweis.\n- World Health Organization Historical Archives on Infection Control.",
+   "tags": [
+    "history",
+    "medicalhistory",
+    "science",
+    "education",
+    "shorts"
+   ],
+   "script_lines": [
+    "In 1847, a Hungarian doctor began scrubbing his hands in bleach solution before delivering babies, and his boss tried to ruin his career for it.",
+    "Doctors in Vienna walked straight from dissecting corpses into the delivery room without washing up.",
+    "Clinic director Dr. Klein mocked the new routine, calling it \"an insulting waste of time that blames gentlemen.\"",
+    "Ignaz Semmelweis stood by his basin and snapped back, \"The truth does not care about your dignity.\"",
+    "Staff complained about the harsh chemical smell, but Semmelweis forced every doctor to scrub at the door.",
+    "Within weeks, maternity ward mortality plunged from eighteen percent down to under two percent.",
+    "Microscopic particles were jumping from cadavers like invisible flour dusted across a table, until chlorine neutralised them.",
+    "He revolutionized medicine forever, simply by refusing to stop scrubbing."
+   ],
+   "cards": [
+    {
+     "text": "VIENNA, 1847",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "THE BLEACH SCRUB",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "\"INSULTING WASTE OF TIME\"",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "DR. KLEIN SCOFFS",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "18% TO UNDER 2% MORTALITY",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "DEATH RATE PLUNGE",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Doctor Who Studied Digestion Through an Open Hole",
+   "description": "In 1823, Dr. William Beaumont conducted pioneering experiments on human digestion through a fistulous hole in Alexis St. Martin's stomach.\n\nSources:\n- Beaumont, W. (1833). Experiments and Observations on the Gastric Juice, and the Physiology of Digestion.\n- Smithsonian Institution Archives.",
+   "tags": [
+    "history",
+    "science",
+    "biology",
+    "weirdhistory",
+    "shorts"
+   ],
+   "script_lines": [
+    "In 1823, an army surgeon began dangling raw meat on silk strings directly into a living man's stomach hole.",
+    "Patient Alexis St. Martin had survived an accident that left a permanent open flap in his abdomen.",
+    "Local doctors mocked the experiment, calling it \"a grotesque circus stunt that proves nothing.\"",
+    "Dr. William Beaumont ignored them and muttered, \"I am watching human digestion happen in real time.\"",
+    "Alexis endured months of raw beef and cabbage being inserted and pulled out every hour.",
+    "Beaumont collected clear gastric juice and showed that stomach acid chemically dissolved the food.",
+    "Hydrochloric acid breaks down protein like battery acid melting copper, operating on precise multi-hour cycles.",
+    "Modern digestive science was born, all because one doctor refused to close an open door."
+   ],
+   "cards": [
+    {
+     "text": "MACKINAC ISLAND, 1823",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "STOMACH ON A STRING",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "\"GROTESQUE CIRCUS STUNT\"",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "CRITICS SCOFF",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "GASTRIC ACID DISCOVERY",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "CHEMICAL DIGESTION PROVEN",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Cage That Stopped Fire Underground",
+   "description": "In 1815, Sir Humphry Davy invented the miner's safety lamp, preventing explosive coal mine gas ignitions using fine wire mesh.\n\nSources:\n- Davy, H. (1818). On the Safety Lamp for Coal Mines.\n- Science Museum Group Collection.",
+   "tags": [
+    "history",
+    "invention",
+    "engineering",
+    "science",
+    "shorts"
+   ],
+   "script_lines": [
+    "In 1815, an inventor carried a glowing open flame straight into a chamber of explosive gas to prove wire mesh could stop a bomb.",
+    "Coal mines across Britain were constantly exploding whenever tallow candles hit trapped methane pockets underground.",
+    "Mine engineers laughed at his design, calling a metal grid \"a useless cage that cannot block real fire.\"",
+    "Sir Humphry Davy lowered his lantern inside and insisted, \"Metal steals heat faster than gas can catch.\"",
+    "Miners watched nervously as flammable gas filled the chamber surrounding the burning wick.",
+    "The blue methane flame flared inside the gauze, but the air outside never ignited.",
+    "Fine copper mesh absorbs thermal energy like a metal radiator, keeping gas below its six-hundred-degree ignition point.",
+    "Coal miners went to work carrying bare flames, saved by a simple metal screen."
+   ],
+   "cards": [
+    {
+     "text": "LONDON, 1815",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "THE MINER SAFETY LAMP",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "\"A USELESS CAGE\"",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "ENGINEERS DOUBT",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "FLAME CONTAINED",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "ZERO IGNITION OUTSIDE",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  }
+ ]
+}
