@@ -1,0 +1,50 @@
+[
+ {
+  "text": "LONDON, 1815",
+  "from": "L0",
+  "to": "L1",
+  "y": 0.15,
+  "size": 100,
+  "color": "#ffd400"
+ },
+ {
+  "text": "THE MINER SAFETY LAMP",
+  "from": "L0",
+  "to": "L1",
+  "y": 0.21,
+  "size": 52,
+  "color": "#ffffff"
+ },
+ {
+  "text": "\"A USELESS CAGE\"",
+  "from": "L2",
+  "to": "L3",
+  "y": 0.15,
+  "size": 100,
+  "color": "#ffd400"
+ },
+ {
+  "text": "ENGINEERS DOUBT",
+  "from": "L2",
+  "to": "L3",
+  "y": 0.21,
+  "size": 52,
+  "color": "#ffffff"
+ },
+ {
+  "text": "FLAME CONTAINED",
+  "from": "L5",
+  "to": "L6",
+  "y": 0.15,
+  "size": 100,
+  "color": "#ffd400"
+ },
+ {
+  "text": "ZERO IGNITION OUTSIDE",
+  "from": "L5",
+  "to": "L6",
+  "y": 0.21,
+  "size": 52,
+  "color": "#ffffff"
+ }
+]
