@@ -1,0 +1,217 @@
+{
+ "options": [
+  {
+   "title": "The Doctor Who Was Mocked For Washing Hands",
+   "description": "In 1847, Ignaz Semmelweis introduced chlorine handwashing at Vienna General Hospital, drastically reducing maternal mortality. Sources: CDC History of Handwashing, World Health Organization historical archives.",
+   "tags": [
+    "history",
+    "medicalhistory",
+    "science",
+    "facts",
+    "shorts"
+   ],
+   "script_lines": [
+    "In 1847, a Hungarian doctor forced his entire medical team to soak their hands in harsh bleach before touching patients.",
+    "Ignaz Semmelweis realized mothers delivered by doctors died at three times the rate of those delivered by midwives.",
+    "His chief physician mocked him, scoffing, 'Gentlemen are clean; disease lives in bad air, not hands!'",
+    "Semmelweis stayed stubborn, standing directly by the door with a tub of chlorinated lime water.",
+    "At first, doctors complained about ruined skin and deliberately skipped the soak whenever he looked away.",
+    "But when washing became mandatory, maternal mortality in his ward dropped from eighteen percent down to less than two.",
+    "Particles from the morgue were hitching rides on dry skin, acting like invisible wet paint passed from doctor to patient.",
+    "It took decades for science to catch up, all because one man forced doctors to wash their hands."
+   ],
+   "cards": [
+    {
+     "text": "VIENNA, 1847",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "CHLORINE HANDWASHING",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "CHIEF DOCTOR MOCKS IT",
+     "from": "L2",
+     "to": "L5",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "BAD AIR VS DIRTY HANDS",
+     "from": "L2",
+     "to": "L5",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "DEATH RATE DROPS 90%",
+     "from": "L5",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "18% DOWN TO UNDER 2%",
+     "from": "L5",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The First Controlled Clinical Trial at Sea",
+   "description": "In 1747, James Lind conducted one of the first controlled clinical trials in history aboard HMS Salisbury to cure scurvy. Sources: Royal Navy Medical Service Records, James Lind's 'A Treatise of the Scurvy' (1753).",
+   "tags": [
+    "history",
+    "royalnavy",
+    "science",
+    "navigation",
+    "shorts"
+   ],
+   "script_lines": [
+    "In 1747, a ship's surgeon fed two scurvy-ridden sailors sour lemons while giving others sulfuric acid and seawater.",
+    "James Lind was trapped on HMS Salisbury, where a mysterious disease was rotting sailors from the inside out.",
+    "Senior physicians laughed at his experiment, sneering, 'Citrus is an expensive snack, not real medicine!'",
+    "Lind ignored them, carefully dividing twelve sick men into six pairs to test six different remedies.",
+    "For days, the men drinking vinegar and saltwater only grew weaker, while skeptics called the test a waste of supplies.",
+    "But on day six, the two lemon-eaters suddenly stood up, fully recovered, and began nursing the other ten men.",
+    "The missing vitamin C was causing their cellular walls to break down like mortar crumbling out of a brick chimney.",
+    "Proving that a simple piece of fruit could defend an entire empire at sea."
+   ],
+   "cards": [
+    {
+     "text": "HMS SALISBURY, 1747",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "FIRST CLINICAL TRIAL",
+     "from": "L0",
+     "to": "L2",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "PHYSICIANS SKEPTICAL",
+     "from": "L2",
+     "to": "L5",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "ACID VS CITRUS FRUIT",
+     "from": "L2",
+     "to": "L5",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "DAY 6: FULL RECOVERY",
+     "from": "L5",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "LEMONS CURE SCURVY",
+     "from": "L5",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Messy Workbench That Saved Millions",
+   "description": "In 1928, Alexander Fleming discovered penicillin by accident after leaving a Petri dish exposed to mold. Sources: Nobel Prize Archives, St. Mary's Hospital Historical Records.",
+   "tags": [
+    "history",
+    "penicillin",
+    "science",
+    "discovery",
+    "shorts"
+   ],
+   "script_lines": [
+    "In 1928, a messy Scottish doctor returned from vacation and refused to wash a moldy dish of bacteria.",
+    "Alexander Fleming was sorting through cluttered glass culture plates in his dusty London laboratory.",
+    "His lab assistant scoffed, saying, 'Throw that ruined trash away so we can start over.'",
+    "Fleming paused, staring closely at a strange blue fuzzy spot, and replied, 'That's funny.'",
+    "Mold contaminants were a daily headache for researchers, usually meaning weeks of wasted effort.",
+    "But around this specific mold blob, thousands of staph bacteria had completely dissolved into clear liquid.",
+    "The mold was secreting penicillin, a molecule that punctures bacterial walls like needles popping tiny water balloons.",
+    "Modern medicine was born simply because a doctor refused to wash his dirty dish."
+   ],
+   "cards": [
+    {
+     "text": "LONDON, 1928",
+     "from": "L0",
+     "to": "L3",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "ACCIDENTAL DISCOVERY",
+     "from": "L0",
+     "to": "L3",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "'THAT'S FUNNY'",
+     "from": "L3",
+     "to": "L5",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "BLUE MOLD ATTACKS STAPH",
+     "from": "L3",
+     "to": "L5",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "BACTERIA DISSOLVED",
+     "from": "L5",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "PENICILLIN IS BORN",
+     "from": "L5",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  }
+ ]
+}
