@@ -1,0 +1,265 @@
+{
+ "options": [
+  {
+   "title": "The Poison Handshake of 1924",
+   "description": "In 1924, Thomas Midgley Jr. poured tetraethyl lead over his hands at a press conference to prove leaded gasoline was safe\u2014while secretly suffering from lead poisoning himself. Sources: Kovarik, W. (2005). 'Ethyl-ed free: Ethyl Leaded Gasoline and the Public Health Debates of the 1920s.'",
+   "tags": [
+    "history",
+    "science",
+    "chemistry",
+    "1920s",
+    "inventor"
+   ],
+   "script_lines": [
+    "In 1924, an inventor poured liquid neurotoxin directly over his hands to prove his new fuel additive was safe.",
+    "Thomas Midgley added lead to gasoline to stop engine knocking, but refinery workers were already falling severely ill.",
+    "A reporter confronted him at a press desk, insisting, \"You are peddling pure poison to the public.\"",
+    "Midgley dried his hands on a napkin and replied, \"I could wash in this every day without feeling a thing.\"",
+    "Sales surged for months while Midgley secretly fled to a seaside resort to recover from lead poisoning himself.",
+    "Public outrage soon hit the oil companies, forcing federal health officials to pause sales nationwide.",
+    "Just fifty micrograms of lead per deciliter of blood causes damage, acting like sand jammed inside delicate clockwork.",
+    "That is why pouring poison over your hands never made leaded fuel safe."
+   ],
+   "cards": [
+    {
+     "text": "NEW YORK, 1924",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "THE LEADED GAS TEST",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "PRESS CONFERENCE",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "ETHYL GASOLINE LAB",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "NATIONWIDE PAUSE",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "HEALTH WARNING 1925",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "LEAD POISONING",
+     "from": "L6",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "50 MCG / DECILITER",
+     "from": "L6",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Doctor Who Fought His Own Hospital",
+   "description": "In 1847, Dr. Ignaz Semmelweis instituted mandatory chlorine handwashing in Vienna, drastically reducing maternal mortality despite intense resistance from senior colleagues. Sources: Loudon, I. (2000). 'The Tragedy of Childbed Fever.' Oxford University Press.",
+   "tags": [
+    "history",
+    "medicine",
+    "vienna",
+    "1840s",
+    "science"
+   ],
+   "script_lines": [
+    "In 1847, a young physician forced his entire medical team to scrub their hands in harsh chemical solution before touching patients.",
+    "Dr. Ignaz Semmelweis noticed mothers in the doctors' clinic were dying at triple the rate of those under local midwives.",
+    "His senior professor mocked the extra washing, grumbling, \"Gentlemen carry no disease on their clean hands.\"",
+    "Semmelweis blocked the door to the ward and insisted, \"You will wash until the smell of the morgue is completely gone.\"",
+    "Doctors complained about raw skin for weeks while the chief surgeon demanded an end to the bizarre routine.",
+    "But within months, the death rate in his clinic plummeted from eighteen percent down to under two percent.",
+    "Microscopic bacteria, unseen as dust motes in sunlight, were destroyed by simple chlorinated lime water.",
+    "And it all changed because one stubborn doctor forced his staff to scrub their hands in a hospital hallway."
+   ],
+   "cards": [
+    {
+     "text": "VIENNA, 1847",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "MATERNITY WARD",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "THE SCRUB ORDER",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "DOCTORS VS MIDWIVES",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "DEATH RATE DROPS",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "FROM 18% TO UNDER 2%",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "ANTISEPTIC DISCOVERY",
+     "from": "L6",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "CHLORINATED LIME",
+     "from": "L6",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Window Into Human Digestion",
+   "description": "Between 1825 and 1833 at Fort Mackinac, Dr. William Beaumont conducted pioneering experiments on digestion through a stomach fistula on patient Alexis St. Martin. Sources: Myer, J. S. (1912). 'Life and Letters of Dr. William Beaumont.' C.V. Mosby Company.",
+   "tags": [
+    "history",
+    "biology",
+    "medicine",
+    "1820s",
+    "discovery"
+   ],
+   "script_lines": [
+    "In 1825, an army surgeon began dangling pieces of meat on silk strings straight into a live man's open stomach hole.",
+    "Alexis St. Martin survived a shotgun blast that left a permanent unsealed flap into his abdomen.",
+    "Visiting doctors scoffed at the desk experiments, declaring, \"The stomach cooks food with internal heat, not chemicals.\"",
+    "Dr. William Beaumont locked his laboratory door and replied, \"I will pull out the liquid and prove how digestion works.\"",
+    "For years Alexis sat beside the desk while Beaumont timed meat dissolving inside him minute by minute.",
+    "Beaumont then placed raw beef into extracted stomach juice inside a warm bath, and it dissolved at the exact same speed.",
+    "Gastric juice uses hydrochloric acid at pH 1.5, breaking down food like acid dissolving rust off an iron nail.",
+    "That transformed a bizarre stomach hole into modern science's greatest window into how we process food."
+   ],
+   "cards": [
+    {
+     "text": "FORT MACKINAC, 1825",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "THE LIVING EXPERIMENT",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "DIGESTION DEBATE",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "HEAT VS CHEMICALS",
+     "from": "L2",
+     "to": "L3",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "BEEF IN ACID",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "OUTSIDE THE BODY",
+     "from": "L5",
+     "to": "L6",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "GASTRIC ACID",
+     "from": "L6",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "PH 1.5 HYDROCHLORIC",
+     "from": "L6",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  }
+ ]
+}
