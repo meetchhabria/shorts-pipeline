@@ -1,0 +1,217 @@
+{
+ "options": [
+  {
+   "title": "The Chemist Who Drank His Own Lead Fuel",
+   "description": "In 1924, inventor Thomas Midgley Jr. held a press conference to prove leaded gasoline was safe by washing his hands in it and inhaling its fumes. Sources: Kovarik (2005), 'Ethyl-ed Free'; Kitman (2000), 'The Secret History of Lead'.",
+   "tags": [
+    "history",
+    "science",
+    "chemistry",
+    "1920s",
+    "inventor"
+   ],
+   "script_lines": [
+    "In 1924, a chemist poured toxic leaded gasoline over his hands and breathed it in for a full minute to prove it was harmless.",
+    "Standard Oil had assembled reporters in a Manhattan lab to defend their lucrative fuel additive after several factory workers collapsed.",
+    "Skeptical journalists scoffed, calling the new compound nothing more than liquid poison in a pump.",
+    "Thomas Midgley Jr. held up a glowing flask and insisted, 'I could do this every day without taking any harm at all.'",
+    "For weeks, executives insisted the chemical was completely benign while internal memos warned of brain damage.",
+    "But just days after his dramatic demonstration, Midgley secretly packed his bags and fled to Florida to recover from severe lead poisoning.",
+    "Tetraethyl lead added over two grams of heavy toxic metal per gallon, lingering in lungs like invisible aerosol spray paint.",
+    "Yet for one bold afternoon in New York, a scientist proved his fuel was safe by washing his hands in poison."
+   ],
+   "cards": [
+    {
+     "text": "NEW YORK, 1924",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "THE LEAD GAS TRIAL",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "LIQUID POISON?",
+     "from": "L2",
+     "to": "L4",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "PRESS CONFERENCE",
+     "from": "L2",
+     "to": "L4",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "2 GRAMS PER GALLON",
+     "from": "L6",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "ATMOSPHERIC LEAD",
+     "from": "L6",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Doctor Who Forced Surgeons to Wash Their Hands",
+   "description": "In 1847, Ignaz Semmelweis discovered that doctors were transferring fatal particles to patients in Vienna. Sources: Semmelweis (1861), 'The Etiology, Concept, and Prophylaxis of Childbed Fever'.",
+   "tags": [
+    "history",
+    "medicine",
+    "science",
+    "vienna",
+    "discovery"
+   ],
+   "script_lines": [
+    "In 1847, a Hungarian doctor ordered his entire medical staff to scrub their hands in harsh chlorine bleach before touching a single patient.",
+    "Ignaz Semmelweis stood in a crowded Vienna hospital, obsessed with why one maternity ward suffered four times more deaths than another.",
+    "Senior doctors mocked his strict new rule, declaring, 'Gentlemen are naturally clean, and a doctor's hands bring no harm.'",
+    "Semmelweis pointed stubbornly to the washbasin and replied, 'Wash your hands anyway, or leave my ward.'",
+    "For weeks, offended surgeons complained that the smelly chlorine solution was ruining their skin and wasting valuable time.",
+    "But as handwashing became mandatory, death rates in the ward suddenly plummeted from eighteen percent down to under two percent.",
+    "Unseen bacteria were hitching rides from autopsy tables directly to living patients, clinging to skin like invisible toxic dust.",
+    "Modern hospital hygiene had begun, all because one doctor forced his colleagues to scrub their hands in bleach."
+   ],
+   "cards": [
+    {
+     "text": "VIENNA, 1847",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "THE WASHBASIN RULE",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "GENTLEMEN ARE CLEAN",
+     "from": "L2",
+     "to": "L4",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "DOCTORS SKEPTICAL",
+     "from": "L2",
+     "to": "L4",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "18% DOWN TO 2%",
+     "from": "L5",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "MORTALITY DROPS",
+     "from": "L5",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Doctor Who Tied Raw Meat to Silk String",
+   "description": "In 1825, army surgeon William Beaumont studied human digestion through an open hole in Alexis St. Martin's stomach. Sources: Beaumont (1833), 'Experiments and Observations on the Gastric Juice'.",
+   "tags": [
+    "history",
+    "biology",
+    "medicine",
+    "science",
+    "michigan"
+   ],
+   "script_lines": [
+    "In 1825, an army surgeon lowered chunks of raw meat tied to silk threads straight into a soldier's open stomach wound.",
+    "At a remote frontier post, Dr. William Beaumont was treating Alexis St. Martin, who survived an accident that left a permanent hole in his side.",
+    "Rival doctors scoffed at the strange routine, claiming, 'The stomach is just a mechanical grinder, not some chemical laboratory.'",
+    "Beaumont adjusted his glass vials and replied, 'Nature opened a window, and I intend to look inside.'",
+    "For months, skeptics labeled the hourly string pullings a foolish sideshow while Alexis complained of constant discomfort.",
+    "But every few hours, the doctor pulled the threads out to reveal the meat fully dissolved into clear liquid.",
+    "Hydrochloric acid inside the stomach maintains a pH around one point five, dissolving food like a tiny vat of industrial battery acid.",
+    "Human digestion was finally understood, simply because a surgeon dropped raw meat into an open stomach wound."
+   ],
+   "cards": [
+    {
+     "text": "MICHIGAN, 1825",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "THE STOMACH WINDOW",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "JUST A GRINDER?",
+     "from": "L2",
+     "to": "L4",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "RIVAL DOCTORS DUBIOUS",
+     "from": "L2",
+     "to": "L4",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "PH LEVEL 1.5",
+     "from": "L6",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "STOMACH ACID POWER",
+     "from": "L6",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  }
+ ]
+}
