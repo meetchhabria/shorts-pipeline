@@ -1,0 +1,214 @@
+{
+ "options": [
+  {
+   "title": "The Bleach Wash That Saved Vienna",
+   "description": "In 1847, Dr. Ignaz Semmelweis realized doctors were carrying unseen contaminants from autopsies into delivery rooms. By enforcing chlorinated lime handwashing, hospital death rates plummeted.\n\nSources:\n- Semmelweis, I. (1861). The Etiology, Concept, and Prophylaxis of Childbed Fever.\n- Loudon, I. (2000). The Tragedy of Childbed Fever.",
+   "tags": [
+    "history",
+    "medicine",
+    "science",
+    "vienna",
+    "semmelweis"
+   ],
+   "script_lines": [
+    "In 1847, a young Hungarian doctor forced every surgeon in Vienna to scrub their hands in chloride solution before delivering babies.",
+    "Vienna General Hospital was losing thousands of mothers, and doctors frequently walked directly from performing autopsies straight to the maternity ward.",
+    "The senior chief mocked the idea, muttering, \"Gentlemen are inherently clean, Ignaz, and water changes nothing.\"",
+    "Semmelweis just pointed to the wash basins and replied, \"Scrub them anyway.\"",
+    "Senior staff resisted, but within weeks, maternal mortality in the doctor's ward plummeted from eighteen percent down to under two.",
+    "Tiny cadaverous particles were hitching a ride on unwashed fingers, acting like muddy boots tracking dirt onto clean carpet.",
+    "Outbreak rates subsided, proving why a simple basin of lime wash transformed modern medicine."
+   ],
+   "cards": [
+    {
+     "text": "VIENNA, 1847",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "DOCTOR ORDERS BLEACH WASH",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "18% TO UNDER 2%",
+     "from": "L4",
+     "to": "L5",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "DEATH RATES PLUMMET",
+     "from": "L4",
+     "to": "L5",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "SAVED BY WASH BASIN",
+     "from": "L6",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "HANDWASHING DISCOVERY",
+     "from": "L6",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Glass Sphere That Ended Surgical Pain",
+   "description": "In 1846, dentist William Morton demonstrated ether anesthesia at Massachusetts General Hospital, turning surgical procedures from terrifying pain into quiet slumber.\n\nSources:\n- Fenster, J. M. (2001). Ether Day: The Strange Tale of America's Greatest Medical Discovery.\n- Massachusetts General Hospital Archives (1846).",
+   "tags": [
+    "history",
+    "ether",
+    "anesthesia",
+    "surgery",
+    "boston"
+   ],
+   "script_lines": [
+    "In 1846, a young dentist walked into a crowded Boston operating theater carrying a round glass globe filled with sweet ether gas.",
+    "Before that morning, surgery was a terrifying nightmare of screaming patients held down by four strong men.",
+    "The chief surgeon eyed the strange glass apparatus skeptically, warning, \"Your odd trick will only suffocate the poor boy.\"",
+    "Morton adjusted the brass valve, held out the glass nozzle, and calmly whispered, \"Just let him breathe.\"",
+    "The patient drifted into a deep sleep, and the surgeon removed a tumor while the room watched in dead silence.",
+    "Ether molecules blocked sensory signals in the brain, working like a temporary circuit breaker on the nervous system.",
+    "The patient woke asking when the cut would start, proving how a glass globe changed medicine forever."
+   ],
+   "cards": [
+    {
+     "text": "BOSTON, 1846",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "ETHER DOME DEMO",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "DEAD SILENCE",
+     "from": "L4",
+     "to": "L5",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "PAINLESS SURGERY SURPRISE",
+     "from": "L4",
+     "to": "L5",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "NO MORE PAIN",
+     "from": "L6",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "FIRST ANESTHESIA TRIUMPH",
+     "from": "L6",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  },
+  {
+   "title": "The Carpenter's Watch That Saved Ships",
+   "description": "In 1761, John Harrison tested his marine chronometer H4 on a transatlantic voyage to Jamaica, solving the long-standing longitude problem.\n\nSources:\n- Sobel, D. (1995). Longitude: The True Story of a Lone Genius Who Solved the Greatest Scientific Problem of His Time.\n- National Maritime Museum Greenwich Archives.",
+   "tags": [
+    "history",
+    "clock",
+    "navigation",
+    "harrison",
+    "longitude"
+   ],
+   "script_lines": [
+    "In 1761, a stubborn carpenter boarded a British warship holding a five-inch silver pocket watch he spent thirteen years building.",
+    "The Royal Navy was losing fleets to shipwreck because sailors had no accurate way to calculate longitude across open ocean.",
+    "Astronomers laughed at the contraption, boasting, \"No delicate clock can survive ocean storms; only the stars tell real time!\"",
+    "Harrison tapped the silver casing and answered, \"My springs keep time where your stars are hidden by clouds.\"",
+    "After an eighty-one day voyage across the Atlantic, his watch was off by less than five seconds.",
+    "Knowing precise London time let sailors compare local sun position, like checking two cell phones set to different time zones.",
+    "Shipwreck risks subsided across the fleet, all because a carpenter put a watch on a ship."
+   ],
+   "cards": [
+    {
+     "text": "LONDON, 1761",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "H4 MARINE CHRONOMETER",
+     "from": "L0",
+     "to": "L1",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "81 DAYS AT SEA",
+     "from": "L4",
+     "to": "L5",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "ONLY 5 SECONDS LOST",
+     "from": "L4",
+     "to": "L5",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    },
+    {
+     "text": "LONGITUDE SOLVED",
+     "from": "L6",
+     "to": "end",
+     "y": 0.15,
+     "size": 100,
+     "color": "#ffd400"
+    },
+    {
+     "text": "POCKET WATCH SAVES FLEET",
+     "from": "L6",
+     "to": "end",
+     "y": 0.21,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ]
+  }
+ ]
+}
